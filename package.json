@@ -1,0 +1,29 @@
+{
+  "name": "@gianlucafiore/vanilla-calendar",
+  "version": "0.4.3",
+  "description": "Calendar view plugin",
+  "main": "index.js",
+  "dependencies": {
+    "@saltcorn/markup": "^0.2.0",
+    "@saltcorn/data": "^0.2.0"
+  },
+  "author": "Gian",
+  "license": "MIT",
+  "repository": "github:gianlucafiore/vanilla-calendar",
+  "eslintConfig": {
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": 2020
+    },
+    "env": {
+      "node": true,
+      "es6": true
+    },
+    "rules": {
+      "no-unused-vars": "off",
+      "no-case-declarations": "off",
+      "no-empty": "warn",
+      "no-fallthrough": "warn"
+    }
+  }
+}
