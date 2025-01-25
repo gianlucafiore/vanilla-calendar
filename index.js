@@ -434,14 +434,13 @@ module.exports = {
   plugin_name: "vanilla-calendar",
   viewtemplates: [
     {
-      name: "Vanilla-Calendar",
+      name: "vanilla-calendar",
       description:
         "Displays items on a calendar, with multi options for month, years, and others.",
       display_state_form: false,
       get_state_fields,
       configuration_workflow,
       run,
-      routes: { update_calendar_event, load_calendar_event },
       connectedObjects,
     },
   ],
