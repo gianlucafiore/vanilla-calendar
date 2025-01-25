@@ -1,5 +1,3 @@
-/*jshint esversion: 8 */
-
 const Field = require("@saltcorn/data/models/field");
 const Table = require("@saltcorn/data/models/table");
 const Form = require("@saltcorn/data/models/form");
@@ -393,8 +391,7 @@ module.exports = {
       display_state_form: false,
       get_state_fields,
       configuration_workflow,
-      run,
-      connectedObjects,
+      run
     },
   ],
 };
