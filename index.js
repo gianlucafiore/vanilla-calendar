@@ -380,54 +380,7 @@ const headers = [
     css: "https://cdn.jsdelivr.net/npm/vanilla-calendar-pro/styles/index.css",
   },
 ];
-const connectedObjects = async ({
-  viewname,
-  expand_view,
-  expand_display_mode,
-  view_to_create,
-  create_display_mode,
-  ...rest
-}) => {
-  let result = { embeddedViews: [], linkedViews: [], tables: [] };
-  const addWithMode = (viewName, mode) => {
-    const view = View.findOne({ name: viewName });
-    if (view) {
-      switch (mode) {
-        case "link":
-          result.linkedViews.push(view);
-          break;
-        case "pop-up":
-          result.embeddedViews.push(view);
-          break;
-      }
-    }
-  };
-  const handleCalendarCfg = (configuration) => {
-    if (configuration.expand_view)
-      addWithMode(configuration.expand_view, configuration.expand_display_mode);
-    if (configuration.view_to_create)
-      addWithMode(
-        configuration.view_to_create,
-        configuration.create_display_mode
-      );
-  };
-  handleCalendarCfg({
-    expand_view,
-    expand_display_mode,
-    view_to_create,
-    create_display_mode,
-  });
-  const otherCalendars = (await View.find({ viewtemplate: "Calendar" })).filter(
-    (view) => view.name !== viewname && rest[view.name]
-  );
-  for (const otherCalendar of otherCalendars) {
-    if (otherCalendar.configuration)
-      handleCalendarCfg(otherCalendar.configuration);
-    const otherTable = Table.findOne({ id: otherCalendar.table_id });
-    if (otherTable) result.tables.push(otherTable);
-  }
-  return result;
-};
+
 module.exports = {
   sc_plugin_api_version: 1,
   headers,
